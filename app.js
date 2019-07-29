@@ -15,6 +15,31 @@ const themes = {
   },
 };
 
+const customThemes = ['--box-bg', '--box-text-color'];
+
+(function (customThemes) {
+  const container = document.querySelector('.customThemeForm');
+  const fragment = document.createDocumentFragment();
+  customThemes.forEach(theme => {
+    const item = document.createElement('div');
+    item.classList.add('.controls-item');
+    const label = document.createElement('label');
+    label.innerHTML = theme;
+    const input = document.createElement('input');
+    input.setAttribute('type', 'color');
+    input.setAttribute('data-var', theme);
+    input.id = 'color' + theme;
+    input.style.marginBottom = '20px';
+    input.style.marginLeft = '10px';
+    label.setAttribute('for', input.id);
+    item.appendChild(label);
+    item.appendChild(input);
+    fragment.appendChild(item);
+  })
+  container.appendChild(fragment);
+
+})(customThemes);
+
 const themeSelect = document.getElementById('themes');
 const form = document.forms['customThemeFrom'];
 const colorInputs = document.querySelectorAll('[data-var]');

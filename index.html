@@ -22,6 +22,10 @@
         padding: 10px;
         /* background: var(--main-bg); */
       }
+      button{
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body>
@@ -40,11 +44,11 @@
     </div>
     <h2>Custom theme</h2>
     <div class="custom-theme-controls">
-      <form name="customThemeFrom">
+      <form name="customThemeFrom" class="customThemeForm">
         <div class="controls-item">
           <input type="text" name="themeName" id="themeName" />
         </div>
-        <div class="controls-item">
+        <!-- <div class="controls-item">
           <label for="color--box-bg">--box-bg</label>
           <input
             type="color"
@@ -61,7 +65,7 @@
             id="color--box-text-color"
             data-var="--box-text-color"
           />
-        </div>
+        </div> -->
         <button type="submit">Set custom theme</button>
       </form>
     </div>
