@@ -55,15 +55,21 @@ themeSelect.addEventListener('change', e => {
 form.addEventListener('submit', e => {
   e.preventDefault();
   const newTheme = {};
-  const newThemeName = inputThemeName.value;
-  colorInputs.forEach(input => {
-    const key = input.dataset.var;
-    const value = input.value;
-    newTheme[key] = value;
-  });
+  let checkTheme = Object.keys(themes).find(item => item === inputThemeName.value.toLowerCase());
+  if (inputThemeName.value !== '' && !checkTheme) {
+    const newThemeName = inputThemeName.value;
+    colorInputs.forEach(input => {
+      const key = input.dataset.var;
+      const value = input.value;
+      newTheme[key] = value;
+    });
 
-  themes[newThemeName] = newTheme;
-  const newSelectOption = new Option(newThemeName, newThemeName);
-  themeSelect.appendChild(newSelectOption);
-  form.reset();
+    themes[newThemeName] = newTheme;
+    const newSelectOption = new Option(newThemeName, newThemeName);
+    themeSelect.appendChild(newSelectOption);
+    form.reset();
+  } else {
+    alert('Theme name is incorrect');
+  }
+
 });
